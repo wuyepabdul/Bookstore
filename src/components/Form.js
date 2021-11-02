@@ -5,10 +5,10 @@ const Form = () => (
     <h1> Add new Book </h1>
     <form className="form-container">
       <div className="form-input">
-        <input type="text" name="book" className="input-field" value="book" placeholder="Book Title" />
+        <input type="text" name="book" className="input-field" placeholder="Book Title" />
       </div>
       <div className="form-input select-input">
-        <input type="text" name="author" className="input-field" value="book" placeholder="Book Author" />
+        <input type="text" name="author" className="input-field" placeholder="Book Author" />
       </div>
     </form>
   </div>
