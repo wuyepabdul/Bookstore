@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Book from '../components/Book';
+import Form from '../components/Form';
 
 const Books = () => {
   const bookList = [
@@ -23,7 +24,14 @@ const Books = () => {
       author: 'Suzzane Collins',
     },
   ];
-  return <div><Book bookList={bookList} /></div>;
+  return (
+    <div className="container-div">
+      <Book bookList={bookList} />
+      {' '}
+      <Form />
+      {' '}
+    </div>
+  );
 };
 
 export default Books;

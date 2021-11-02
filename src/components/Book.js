@@ -3,15 +3,22 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 const Book = ({ bookList }) => (
-  <ul>
+  <div className="book-container">
     {bookList.length > 0 ? (bookList.map((book) => (
-      <li key={book.id}>
-        <p>{book.category}</p>
-        <h1>{book.title}</h1>
-        <p>{book.author}</p>
-      </li>
+      <div key={book.id} className="book-div">
+        <div key={book.id} className="book">
+          <p>{book.category}</p>
+          <h1>{book.title}</h1>
+          <p>{book.author}</p>
+        </div>
+        <div className="book-buttons">
+          <button type="button">
+            Remove
+          </button>
+        </div>
+      </div>
     ))) : <li>No books</li>}
-  </ul>
+  </div>
 );
 
 /* Book.propTypes = {
