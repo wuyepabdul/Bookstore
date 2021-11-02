@@ -63,15 +63,15 @@ a {
 
 .form-container {
   display: flex;
-}
-
-.form-container:last-child {
-  margin-left: 10px;
-  background-color: grey;
+  justify-content: space-between;
 }
 
 .form-input {
   width: 100%;
+}
+
+.select-input{
+  margin-left: 20px;
 }
 
 .form-container .input-field {
