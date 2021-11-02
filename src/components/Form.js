@@ -8,12 +8,7 @@ const Form = () => (
         <input type="text" name="book" className="input-field" value="book" placeholder="Book Title" />
       </div>
       <div className="form-input select-input">
-        <select className="input-field">
-          <option>category</option>
-          <option>category</option>
-          <option>category</option>
-          <option>category</option>
-        </select>
+        <input type="text" name="author" className="input-field" value="book" placeholder="Book Author" />
       </div>
     </form>
   </div>
