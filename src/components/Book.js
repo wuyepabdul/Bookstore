@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Book = ({ bookList }) => (
   <div className="book-container">
@@ -21,8 +20,8 @@ const Book = ({ bookList }) => (
   </div>
 );
 
-/* Book.propTypes = {
-  bookList: PropTypes.array.isRequired,
-}; */
+Book.propTypes = {
+  bookList: PropTypes.shape([]).isRequired,
+};
 
 export default Book;
