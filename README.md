@@ -8,16 +8,13 @@
 
 ## Screenshots
 
-<img src="./src/images/math1.png">
-
-<img src="./src/images/math2.png">
-
-<img src="./src/images/math3.png">
+<!-- <img src="./src/images/math1.png"> -->
 
 
 ## Live Demo
 
-[Live Demo Link](https://wuyepabdul.github.io/math-magician/)
+[Not ready yet](https://wuyepabdul.github.io/bookstore/)
+<!-- [Live Demo Link](https://wuyepabdul.github.io/math-magician/) -->
 
 
 ## Built With
