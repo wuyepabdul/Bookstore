@@ -9,7 +9,8 @@ const Books = () => {
   const dispatch = useDispatch();
 
   const books = useSelector((state) => state.books);
-
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState(false);
   const [bookData, setBookData] = useState({
     id: uuidv4(),
     title: '',
@@ -21,19 +22,26 @@ const Books = () => {
       ...bookData,
       [e.target.name]: e.target.value,
     });
+    setError(false);
+    setMessage('');
   };
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    const newBook = bookData;
-    dispatch(addBookAction(newBook));
-    setBookData({
-      id: uuidv4(),
-      title: '',
-      author: '',
-    });
-    e.target.children[0].firstChild.value = '';
-    e.target.children[1].firstChild.value = '';
+    if (bookData.title === '' || bookData.author === '') {
+      setError(true);
+      setMessage('All fields are required');
+    } else {
+      const newBook = bookData;
+      dispatch(addBookAction(newBook));
+      setBookData({
+        id: uuidv4(),
+        title: '',
+        author: '',
+      });
+      e.target.children[0].firstChild.value = '';
+      e.target.children[1].firstChild.value = '';
+    }
   };
 
   const removeBookFromStore = (bookId) => {
@@ -51,6 +59,7 @@ const Books = () => {
           />
         ))
         : ''}
+      {error && (<p className="error-message">{message}</p>)}
       <Form handleChange={handleChange} submitBookToStore={submitBookToStore} />
     </div>
   );
