@@ -15,7 +15,6 @@ const Book = ({ book, removeBookFromStore }) => (
         </button>
       </div>
     </div>
-
   </div>
 );
 
