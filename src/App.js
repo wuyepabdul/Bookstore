@@ -10,13 +10,10 @@ const App = () => (
     <Switch>
       <Route exact path="/">
         <Books />
-        {' '}
       </Route>
       <Route exact path="/categories">
         <Categories />
-        {' '}
       </Route>
-
     </Switch>
   </Router>
 );
