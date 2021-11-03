@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from '../components/Book';
 import Form from '../components/Form';
+// import { addBookAction } from '../store/books/books';
 
 const Books = () => {
+  // const dispatch = useDispatch();
+
+  const [bookData, setBookData] = useState({
+    id: uuidv4(),
+    title: '',
+    category: '',
+    author: '',
+  });
+
+  const handleChange = (e) => {
+    setBookData({
+      ...bookData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const submitBookToStore = (e) => {
+    e.preventDefault();
+    const newBook = bookData;
+    console.log('new book', newBook);
+  };
+
   const bookList = [
     {
       id: uuidv4(),
@@ -24,10 +48,11 @@ const Books = () => {
       author: 'Suzzane Collins',
     },
   ];
+
   return (
     <div className="container-div">
       {bookList.length > 0 ? bookList.map((book) => (<Book key={book.id} book={book} />)) : ''}
-      <Form />
+      <Form handleChange={handleChange} submitBookToStore={submitBookToStore} />
     </div>
   );
 };
