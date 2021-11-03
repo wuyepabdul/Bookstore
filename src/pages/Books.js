@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from '../components/Book';
 import Form from '../components/Form';
-import { addBookAction } from '../store/books/books';
+import { addBookAction, removeBookAction } from '../store/books/books';
 
 const Books = () => {
   const dispatch = useDispatch();
 
+  const books = useSelector((state) => state.books);
+
   const [bookData, setBookData] = useState({
     id: uuidv4(),
     title: '',
-    category: '',
     author: '',
   });
 
@@ -27,6 +28,7 @@ const Books = () => {
     const newBook = bookData;
     dispatch(addBookAction(newBook));
     setBookData({
+      id: uuidv4(),
       title: '',
       author: '',
     });
@@ -34,30 +36,21 @@ const Books = () => {
     e.target.children[1].firstChild.value = '';
   };
 
-  const bookList = [
-    {
-      id: uuidv4(),
-      title: 'The Hunger Games',
-      category: 'Action',
-      author: 'Suzzane Collins',
-    },
-    {
-      id: uuidv4(),
-      title: 'Dune',
-      category: 'Science Fiction',
-      author: 'Frank Herbert',
-    },
-    {
-      id: uuidv4(),
-      title: 'Capital in the Twenty-First Century',
-      category: 'Economy',
-      author: 'Suzzane Collins',
-    },
-  ];
+  const removeBookFromStore = (bookId) => {
+    dispatch(removeBookAction(bookId));
+  };
 
   return (
     <div className="container-div">
-      {bookList.length > 0 ? bookList.map((book) => (<Book key={book.id} book={book} />)) : ''}
+      {books.length > 0
+        ? books.map((book) => (
+          <Book
+            key={book.id}
+            book={book}
+            removeBookFromStore={removeBookFromStore}
+          />
+        ))
+        : ''}
       <Form handleChange={handleChange} submitBookToStore={submitBookToStore} />
     </div>
   );

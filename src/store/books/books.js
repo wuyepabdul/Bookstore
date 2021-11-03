@@ -19,6 +19,8 @@ export default function booksReducer(state = initialState, action) {
       return [...state, action.payload];
 
     case REMOVE_BOOK:
+      console.log('state', state);
+      console.log('payload', action.payload);
       return state.filter((book) => book.id !== action.payload);
     default:
       return state;
