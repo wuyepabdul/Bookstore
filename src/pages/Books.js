@@ -73,8 +73,3 @@ const Books = () => {
 };
 
 export default Books;
-/*  <Book
-            key={book[0]}
-            book={book}
-            removeBookFromStore={removeBookFromStore}
-          /> */
