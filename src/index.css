@@ -100,23 +100,32 @@ a:active {
   display: flex;
   align-items: flex-end;
   text-align: left;
+  list-style: none;
 }
 
-.remove-btn {
-  width: 3.375rem;
+.book-buttons:last-child() {
+  border-right: none;
+  background-color: #0290ff;
+}
+
+.book-btn {
   height: 1.188rem;
-  margin: 0.188rem 0.938rem 0.125rem 0.875rem;
+  margin: 0.188rem 1.5rem 0.125rem 0;
   font-size: 0.875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+  text-align: left;
   color: #4386bf;
   border: none;
   background-color: inherit;
-  background-color: aqua;
   border-right: 1px solid rgb(239, 239, 239);
+}
+
+.book-btn:hover {
+  cursor: pointer;
 }
 
 .book,
@@ -125,7 +134,9 @@ a:active {
 }
 
 .container-div {
+  width: 50%;
   padding: 50px;
+  margin: 0 auto;
 }
 
 .form-container {

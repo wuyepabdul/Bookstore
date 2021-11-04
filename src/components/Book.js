@@ -8,11 +8,23 @@ const Book = ({ book, bookId, removeBookFromStore }) => (
         <p className="book-category">{book.category}</p>
         <h1 className="book-title">{book.title}</h1>
       </div>
-      <div className="book-buttons">
-        <button className="remove-btn" type="button" onClick={() => removeBookFromStore(bookId)}>
-          Remove
-        </button>
-      </div>
+      <ul className="book-buttons">
+        <li>
+          <button className="book-btn" type="button">
+            Comments
+          </button>
+        </li>
+        <li>
+          <button className="book-btn" type="button" onClick={() => removeBookFromStore(bookId)}>
+            Remove
+          </button>
+        </li>
+        <li>
+          <button className="book-btn" type="button">
+            Edit
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
 );
