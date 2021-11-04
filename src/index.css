@@ -108,7 +108,6 @@ a:active {
   padding-top: 20px;
 }
 
-
 .book-btn {
   height: 1.188rem;
   margin: 0.188rem 1.5rem 0.125rem 0;
@@ -120,13 +119,13 @@ a:active {
   letter-spacing: normal;
   text-align: left;
   color: #4386bf;
-  padding-right:15px ;
+  padding-right: 15px;
   border: none;
   background-color: inherit;
   border-right: 1px solid rgb(239, 239, 239);
 }
 
-.edit-btn{
+.edit-btn {
   border-right: none;
 }
 
