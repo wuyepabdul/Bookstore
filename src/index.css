@@ -103,10 +103,11 @@ a:active {
   list-style: none;
 }
 
-.book-buttons:last-child() {
-  border-right: none;
-  background-color: #0290ff;
+.book,
+.book-buttons {
+  padding-top: 20px;
 }
+
 
 .book-btn {
   height: 1.188rem;
@@ -119,18 +120,18 @@ a:active {
   letter-spacing: normal;
   text-align: left;
   color: #4386bf;
+  padding-right:15px ;
   border: none;
   background-color: inherit;
   border-right: 1px solid rgb(239, 239, 239);
 }
 
-.book-btn:hover {
-  cursor: pointer;
+.edit-btn{
+  border-right: none;
 }
 
-.book,
-.book-buttons {
-  padding-top: 20px;
+.book-btn:hover {
+  cursor: pointer;
 }
 
 .container-div {

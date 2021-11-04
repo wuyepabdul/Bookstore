@@ -20,7 +20,7 @@ const Book = ({ book, bookId, removeBookFromStore }) => (
           </button>
         </li>
         <li>
-          <button className="book-btn" type="button">
+          <button className="book-btn edit-btn" type="button">
             Edit
           </button>
         </li>
