@@ -42,7 +42,7 @@ const Books = () => {
         title: '',
         category: '',
       });
-      setTimeout(() => { window.location.reload(); }, 200);
+      setTimeout(() => { window.location.reload(); }, 500);
       e.target.children[0].firstChild.value = '';
       e.target.children[1].firstChild.value = '';
     }
@@ -73,8 +73,3 @@ const Books = () => {
 };
 
 export default Books;
-/*  <Book
-            key={book[0]}
-            book={book}
-            removeBookFromStore={removeBookFromStore}
-          /> */
