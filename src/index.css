@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #fafafa;
+}
+
 .error-message {
   color: red;
   font-size: 25px;
@@ -37,11 +41,68 @@ a {
 }
 
 .book-div {
-  border: 1px solid grey;
-  box-shadow: -1px 0 5px 0;
+  /* border: 1px solid grey; */
+  border-radius: 4px;
+  border: 1px solid rgb(239, 239, 239);
+  background-color: #fff;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px 25px;
+}
+
+.book-title {
+  width: 22.813rem;
+  height: 1.813rem;
+  margin: 0.188rem 9.688rem 0 0;
+  font-family: RobotoSlab;
+  font-size: 1.375rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  color: #121212;
+}
+
+.book-category {
+  width: 3.063rem;
+  height: 1.125rem;
+  margin: 0 2.438rem 0 0;
+  opacity: 0.5;
+  font-family: Montserrat;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.book-buttons {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  text-align: left;
+}
+
+.remove-btn {
+  width: 3.375rem;
+  height: 1.188rem;
+  margin: 0.188rem 0.938rem 0.125rem 0.875rem;
+  font-family: RobotoSlab;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4386bf;
+  border: none;
+  background-color: inherit;
+  background-color: aqua;
+  border-right: 1px solid rgb(239, 239, 239);
 }
 
 .book,
