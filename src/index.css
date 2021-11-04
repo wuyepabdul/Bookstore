@@ -48,6 +48,16 @@ a:active {
   color: #121212;
 }
 
+.form {
+  padding-top: 30px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.add-book-heading {
+  margin-bottom: 30px;
+  color: #888888;
+}
+
 .book-div {
   border-radius: 4px;
   border: 1px solid rgb(239, 239, 239);
@@ -140,7 +150,12 @@ a:active {
   width: 100%;
 }
 
-.delete-button {
+.submit-button {
+  background-color: #0290ff;
+width: 9rem;
   padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
   margin-left: 20px;
+  color: #fff;
 }
