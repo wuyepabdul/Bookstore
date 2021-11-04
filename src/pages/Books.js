@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -43,21 +42,19 @@ const Books = () => {
         title: '',
         category: '',
       });
-      setTimeout(() => { window.location.reload(); }, 1000);
+      setTimeout(() => { window.location.reload(); }, 200);
       e.target.children[0].firstChild.value = '';
       e.target.children[1].firstChild.value = '';
     }
   };
 
   const removeBookFromStore = (bookId) => {
-    console.log('id', bookId);
     dispatch(removeBookAction(bookId));
-    setTimeout(() => { window.location.reload(); }, 1000);
+    setTimeout(() => { window.location.reload(); }, 500);
   };
 
   return (
     <div className="container-div">
-
       {books.books[0]
         ? books.books[0].map((book) => (
           <Book
