@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from '../components/Book';
 import Form from '../components/Form';
-import { addBookAction, removeBookAction } from '../store/books/books';
+import { addBookAction, getBooksAction, removeBookAction } from '../store/books/books';
 
 const Books = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state);
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
   const [bookData, setBookData] = useState({
-    id: uuidv4(),
+    item_id: uuidv4(),
     title: '',
-    author: '',
+    category: '',
   });
+
+  useEffect(() => {
+    dispatch(getBooksAction());
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setBookData({
@@ -27,7 +31,7 @@ const Books = () => {
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    if (bookData.title === '' || bookData.author === '') {
+    if (bookData.title === '' || bookData.category === '') {
       setError(true);
       setMessage('All fields are required');
     } else {
@@ -36,8 +40,9 @@ const Books = () => {
       setBookData({
         id: uuidv4(),
         title: '',
-        author: '',
+        category: '',
       });
+      setTimeout(() => { window.location.reload(); }, 200);
       e.target.children[0].firstChild.value = '';
       e.target.children[1].firstChild.value = '';
     }
@@ -45,23 +50,31 @@ const Books = () => {
 
   const removeBookFromStore = (bookId) => {
     dispatch(removeBookAction(bookId));
+    setTimeout(() => { window.location.reload(); }, 500);
   };
 
   return (
     <div className="container-div">
-      {books.length > 0
-        ? books.map((book) => (
+      {books.books[0]
+        ? books.books[0].map((book) => (
           <Book
-            key={book.id}
-            book={book}
+            key={book}
+            book={book[1][0]}
+            bookId={book[0]}
             removeBookFromStore={removeBookFromStore}
           />
         ))
         : ''}
       {error && (<p className="error-message">{message}</p>)}
+
       <Form handleChange={handleChange} submitBookToStore={submitBookToStore} />
     </div>
   );
 };
 
 export default Books;
+/*  <Book
+            key={book[0]}
+            book={book}
+            removeBookFromStore={removeBookFromStore}
+          /> */
