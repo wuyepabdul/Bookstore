@@ -15,8 +15,9 @@ const appId = process.env.REACT_APP_API_ID;
 export const getBooksAction = () => async (dispatch) => {
   try {
     dispatch({ type: GET_BOOKS });
-    const books = await axios.get(`${baseUrl}/${appId}/books`);
-    dispatch({ type: SET_BOOKS_IN_STORE, payload: books });
+    const { data } = await axios.get(`${baseUrl}/${appId}/books`);
+    dispatch({ type: SET_BOOKS_IN_STORE, payload: Object.entries(data) });
+    // Object.entries(books.data).map((b) => console.log('ee', b));
   } catch (error) {
     dispatch({
       type: GET_BOOKS_FAIL,
@@ -26,8 +27,6 @@ export const getBooksAction = () => async (dispatch) => {
 };
 
 export const addBookAction = (payload) => async (dispatch) => {
-  console.log('baseurl', baseUrl);
-  console.log('appid', appId);
   try {
     await axios.post(`${baseUrl}/${appId}/books`, payload);
     dispatch({ type: ADD_BOOK });
@@ -50,10 +49,9 @@ export default function booksReducer(state = initialState, action) {
       return [...state, action.payload];
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload);
-    case GET_BOOKS:
-      return { loading: true };
+
     case SET_BOOKS_IN_STORE:
-      return { loading: false, state };
+      return [...state, action.payload];
     case ADD_BOOK_FAIL:
       return { error: action.payload };
     case GET_BOOKS_FAIL:

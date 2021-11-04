@@ -9,7 +9,7 @@ const Form = ({ handleChange, submitBookToStore }) => (
         <input type="text" name="title" onChange={handleChange} className="input-field" placeholder="Book Title" />
       </div>
       <div className="form-input select-input">
-        <input type="text" name="author" onChange={handleChange} className="input-field" placeholder="Book Author" />
+        <input type="text" name="category" onChange={handleChange} className="input-field" placeholder="Category" />
       </div>
       <div>
         <button className="delete-button" type="submit">Submit</button>

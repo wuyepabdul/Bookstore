@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Book = ({ book, removeBookFromStore }) => (
+const Book = ({ book, bookId, removeBookFromStore }) => (
   <div className="book-container">
-    <div key={book.id} className="book-div">
+    <div key={bookId} className="book-div">
       <div className="book">
         <p>{book.category}</p>
         <h1>{book.title}</h1>
-        <p>{book.author}</p>
       </div>
       <div className="book-buttons">
-        <button type="button" onClick={() => removeBookFromStore(book.id)}>
+        <button type="button" onClick={() => removeBookFromStore(bookId)}>
           Remove
         </button>
       </div>
@@ -20,11 +19,10 @@ const Book = ({ book, removeBookFromStore }) => (
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
     category: PropTypes.string,
-    author: PropTypes.string,
+    title: PropTypes.string,
   }).isRequired,
+  bookId: PropTypes.string.isRequired,
   removeBookFromStore: PropTypes.func.isRequired,
 };
 
