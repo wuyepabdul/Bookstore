@@ -19,7 +19,7 @@ const Books = () => {
 
   useEffect(() => {
     dispatch(getBooksAction());
-  }, []);
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setBookData({
@@ -43,27 +43,21 @@ const Books = () => {
         title: '',
         category: '',
       });
+      setTimeout(() => { window.location.reload(); }, 1000);
       e.target.children[0].firstChild.value = '';
       e.target.children[1].firstChild.value = '';
     }
   };
 
   const removeBookFromStore = (bookId) => {
+    console.log('id', bookId);
     dispatch(removeBookAction(bookId));
+    setTimeout(() => { window.location.reload(); }, 1000);
   };
 
-  const arr = [1, 2, 4, 5, 6];
-  /*
-0: Array(2)
-0: "yec-ccwedsc"
-1: Array(1)
-0: {category: "Fiction", title: "The Great Gatsby"}
-
-*/
   return (
     <div className="container-div">
 
-      {books.books[0] && console.log('books', books.books[0])}
       {books.books[0]
         ? books.books[0].map((book) => (
           <Book
